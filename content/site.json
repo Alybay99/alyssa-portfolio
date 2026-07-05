@@ -26,6 +26,14 @@
       "featured": false
     },
     {
+      "type": "photo",
+      "title": "多儿的日常",
+      "date": "2026",
+      "summary": "多儿的小眼神和屁垫给工作多了点态度！",
+      "image": "assets/IMG_8620.jpeg",
+      "featured": false
+    },
+    {
       "type": "essay",
       "title": "关于一座城市的早晨",
       "date": "长文章",
@@ -33,14 +41,6 @@
       "image": "",
       "featured": false,
       "articleId": "city-morning"
-    },
-    {
-      "type": "photo",
-      "title": "多儿的日常",
-      "date": "2026",
-      "summary": "多儿的小眼神和屁垫给工作多了点态度！",
-      "image": "assets/IMG_8620.jpeg",
-      "featured": false
     },
     {
       "type": "note",
