@@ -1,0 +1,75 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+media_folder: "assets"
+public_folder: "assets"
+
+site_url: "/"
+display_url: "/"
+logo_url: "/assets/hero-archive.png"
+
+collections:
+  - name: "site"
+    label: "网站内容"
+    files:
+      - name: "homepage"
+        label: "主页、作品、文章"
+        file: "content/site.json"
+        format: "json"
+        fields:
+          - label: "基本信息"
+            name: "profile"
+            widget: "object"
+            fields:
+              - { label: "姓名", name: "name", widget: "string" }
+              - { label: "首页大标题", name: "heroTitle", widget: "string" }
+              - { label: "首页介绍", name: "heroCopy", widget: "text" }
+              - { label: "关于我", name: "about", widget: "text" }
+              - { label: "邮箱", name: "email", widget: "string", required: false }
+              - { label: "Instagram 链接", name: "instagram", widget: "string", required: false }
+              - { label: "YouTube 链接", name: "youtube", widget: "string", required: false }
+          - label: "作品"
+            label_singular: "作品"
+            name: "works"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - label: "类型"
+                name: "type"
+                widget: "select"
+                options:
+                  - { label: "照片", value: "photo" }
+                  - { label: "视频", value: "video" }
+                  - { label: "文章", value: "essay" }
+                  - { label: "短文", value: "note" }
+              - { label: "标题", name: "title", widget: "string" }
+              - { label: "日期", name: "date", widget: "string", required: false }
+              - { label: "简介", name: "summary", widget: "text", required: false }
+              - { label: "图片", name: "image", widget: "image", required: false }
+              - { label: "是否大卡片", name: "featured", widget: "boolean", required: false, default: false }
+              - { label: "关联文章 ID", name: "articleId", widget: "string", required: false, hint: "如果类型是文章，填写下面文章列表里的 ID，例如 city-morning。" }
+          - label: "文章"
+            label_singular: "文章"
+            name: "articles"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "文章 ID", name: "id", widget: "string", hint: "用英文或拼音，例如 city-morning。作品里要关联这篇文章时填写同一个 ID。" }
+              - { label: "标题", name: "title", widget: "string" }
+              - { label: "日期/分类", name: "meta", widget: "string", required: false }
+              - { label: "摘要", name: "excerpt", widget: "text", required: false }
+              - label: "正文段落"
+                label_singular: "段落"
+                name: "body"
+                widget: "list"
+                field: { label: "段落", name: "paragraph", widget: "text" }
+          - label: "短文"
+            label_singular: "短文"
+            name: "notes"
+            widget: "list"
+            summary: "{{fields.date}}"
+            fields:
+              - { label: "日期", name: "date", widget: "string", required: false }
+              - { label: "内容", name: "text", widget: "text" }

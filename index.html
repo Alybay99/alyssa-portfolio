@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>你的名字 - 个人作品集</title>
+    <meta
+      name="description"
+      content="个人作品集网页，用于展示照片、视频、长文章和短文记录。"
+    />
+    <link rel="stylesheet" href="styles.css?v=portfolio-2" />
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="回到首页" id="site-name">你的名字</a>
+      <nav class="site-nav" aria-label="主要导航">
+        <a href="#works">作品</a>
+        <a href="#writing">文章</a>
+        <a href="#about">关于</a>
+        <a href="#contact">联系</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <img
+          class="hero-image"
+          src="assets/hero-archive.png"
+          alt="桌面上的照片、笔记本、相机与创作资料"
+        />
+        <div class="hero-shade"></div>
+        <div class="hero-content">
+          <p class="eyebrow">Photography / Video / Writing</p>
+          <h1 id="hero-title">把光影、远方与心事，安放在时间里。</h1>
+          <p class="hero-copy" id="hero-copy">
+            这里可以展示你的照片、影像项目、长文章，也可以收藏几句话的日常短文。
+          </p>
+          <div class="hero-actions" aria-label="快捷入口">
+            <a class="button primary" href="#works">浏览作品</a>
+            <a class="button secondary" href="#writing">阅读文章</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section workbench" id="works" aria-labelledby="works-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Selected Work</p>
+            <h2 id="works-title">作品</h2>
+          </div>
+          <div class="filter-bar" role="tablist" aria-label="作品分类">
+            <button class="filter-button active" type="button" data-filter="all" role="tab">
+              全部
+            </button>
+            <button class="filter-button" type="button" data-filter="photo" role="tab">
+              照片
+            </button>
+            <button class="filter-button" type="button" data-filter="video" role="tab">
+              视频
+            </button>
+            <button class="filter-button" type="button" data-filter="essay" role="tab">
+              文章
+            </button>
+            <button class="filter-button" type="button" data-filter="note" role="tab">
+              短文
+            </button>
+          </div>
+        </div>
+        <div class="work-grid" id="work-grid" aria-live="polite"></div>
+      </section>
+
+      <section class="section writing-band" id="writing" aria-labelledby="writing-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Journal</p>
+            <h2 id="writing-title">文章</h2>
+          </div>
+          <p class="section-note">
+            长文章适合完整项目、游记、影评；短文适合灵感、句子和日常片段。
+          </p>
+        </div>
+        <div class="writing-layout">
+          <article class="feature-article" id="featured-article"></article>
+          <div class="note-list" id="note-list"></div>
+        </div>
+      </section>
+
+      <section class="section about-band" id="about" aria-labelledby="about-title">
+        <div class="about-layout">
+          <div>
+            <p class="eyebrow">About</p>
+            <h2 id="about-title">关于我</h2>
+          </div>
+          <p id="about-copy">
+            在这里写一段你的自我介绍：你关注什么、喜欢拍什么、最近在做什么项目。
+            这段文字可以很安静，也可以很锋利，取决于你想让别人怎样遇见你。
+          </p>
+        </div>
+      </section>
+
+      <section class="section contact-band" id="contact" aria-labelledby="contact-title">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title">联系</h2>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:hello@example.com" id="email-link">hello@example.com</a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" id="instagram-link">Instagram</a>
+          <a href="https://www.youtube.com/" target="_blank" rel="noreferrer" id="youtube-link">YouTube</a>
+        </div>
+      </section>
+    </main>
+
+    <dialog class="article-dialog" id="article-dialog" aria-labelledby="dialog-title">
+      <button class="close-button" type="button" aria-label="关闭文章" id="close-dialog">
+        ×
+      </button>
+      <article class="dialog-content">
+        <p class="eyebrow" id="dialog-meta"></p>
+        <h2 id="dialog-title"></h2>
+        <div id="dialog-body"></div>
+      </article>
+    </dialog>
+
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+    <script src="script.js?v=portfolio-3"></script>
+  </body>
+</html>
